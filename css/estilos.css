@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    min-height: 100vh; /*establece la altura minima que puede tener un elemento, 100vh es una unidad de medida que hace referencia al 2viewport height" o altura visible del navegador, esto significa que el elemento nunca sera mas corto que la altura de la ventana grafica*/
+    background-color: #808296;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*la unidad rem "root em" em se refiere al tamaño de la fuente del elemento. la unidad rem es relativa al tamaño de fuente de raiz. ejemplo 1rem (se establece un valor igual al tamaño de fuente de raiz 16px, 1rem=16px
+el beneficio al usar rem es que, cuando se cambia el tamaño de fuente de raiz, todos los valores "rem" se ajustaran automaticamente*/
+.calculadora {
+    background-color: #0d0d0e;
+    color: #ffffff;
+    width: 350px;
+    max-width: 100%;
+    padding: 1.5rem; 
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Define 4 columnas de igual tamaño */
+    gap: .5rem;
+
+}
+
+/*grid-column se utiliza para controlar el posicionamiento y el tamaño de las columnas dentro de un contenedor. especifica donde empieza y donde termina una celda o elemento dentro de la cuadricula en el eje de columnas*/
+.pantalla {
+    
+    grid-column: 1 / 5;
+    background-color: #f0f0f5;
+    padding: 1.5rem;
+    font-size: 2rem;
+    text-align: right;
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+    font-family: monospace;
+    font-family: 600;
+    overflow-x: auto
+}
+
+.btn{
+    background-color: #15173c;
+    color: #ffffff;
+    border: 0;
+    padding: 1.5rem .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #090c31;
+}
+
+.pantalla {
+    color: #090c31;
+}
+
+#cero{
+    grid-column: 1 / 3; /*podemos colocar span 2, queremos que ocupen 2 columnas*/
+   
+}
+
+
+#igual{
+    grid-row: span 2;
+    background-color: #a1118e;
+}
+
+#igual:hover {
+    background-color: #e65766;
+    .btn{
+        margin-top: 10px; 
+    }
+}
+
+/* Estilos para pantallas pequeñas (menos de 200px de ancho) */
+@media (max-width: 200px) {
+    .calculadora {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Cambia de 4 a 3 columnas */
+        grid-auto-rows: auto;
+        min-width: 200px; /* Establece un ancho mínimo de 300px */
+    }
+    
+    .pantalla {
+        font-size: 1.5rem; /* Reduzca el tamaño de fuente de la pantalla */
+        max-width: none; /* Evita que la pantalla se reduzca más */
+    }
+
+    .btn-operacion,
+    .btn {
+        grid-column: span 1; /* Cada botón de operación ocupa una columna */
+        margin-top: 10px; /* Espacio entre los botones */
+        max-width: none; /* Evita que los botones se reduzcan más */
+        background-color: #9ba3a7 !important;
+    }
+}
+
+
+@media (max-width: 400px) {
+    .calculadora {
+        background-color: rgb(36, 21, 21); 
+        font-size: 1.5rem;
+        max-width: 80%;
+    }
+    .pantalla{
+        font-size: 1.5rem; /* Reduzca el tamaño de fuente de la pantalla */
+        max-width: 100%; /* Permita que la pantalla se reduzca junto con la calculadora */
+    }
+   
+}
+
+@media (max-width: 768px) {
+    .calculadora {
+        width: 90%; /* Ajusta el ancho de la calculadora */
+        max-width: 300px; /* Establece un ancho máximo para evitar que se vuelva demasiado grande */
+        margin: 0 auto; /* Centra la calculadora horizontalmente en la pantalla */
+    }
+
+    .pantalla {
+        font-size: 2rem; /* Aumenta el tamaño de fuente de la pantalla */
+        padding: 1rem; /* Aumenta el espaciado alrededor de la pantalla */
+        background-color: #6dc6e9 !important;
+        
+
+    }
+    .btn {
+        font-size: 1.5rem; /* Aumenta el tamaño de fuente de los botones */
+        padding: 1rem 0.5rem; /* Aumenta el espaciado entre los botones */
+        
+    }
+    #igual{
+        background-color: #6dc6e9 !important ;
+    }
+
+   
+}
